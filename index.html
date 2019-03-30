@@ -7,74 +7,24 @@
     <title>GifTastic</title>
 </head>
 <body>
-    <div class="container">
-        <div id="buttons-view"></div>
+    <div id="athletes-buttons">
+
+    </div>
+        
         <form id="athlete-form">
                 <label for="athlete-input">Add an Athlete:</label>
                 <input type="text" id="athlete-input">
-                <br>
                 <input id="add-athlete" type="submit" value="Submit">
               </form>
-        <div id="athletes"></div>
+        <div id="athletes">
+
+        </div>
     </div>
         <script 
         src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous">
         </script>  
+        <script src="index.js"></script>
 
-    <script type="text/javascript">
    
-   var athletes = ["Kobe Bryant", "Michael Jordan", "Lebron James", "Stephen Curry", "Kevin Durant", "Magic Johnson", "Roger Federer", "Novak Djokovic", "Rafael Nadal", "Sachin Tendulkar"];
-
-   function displayAthletes() {
-       var athlete = $(this).attr('data-name');
-       var queryURL = "https://api.giphy.com/v1/gifs/search?q=athletes&api_key=GphJwpkIXq4l6EGqvH1Tg4nztLgjIM5E";
-
-       $.ajax({
-           url: queryURL,
-           method: "GET"
-       }).then(function (athleteData) {
-           var athleteStr = JSON.stringify(athleteData);
-           $('#athletes').text(athleteStr);
-       });
-   }
-
-function renderButtons() {
-    $('#buttons-view').empty();
-    
-    for(var i = 0; i < athletes.length; i++) {
-    var button = $('<button>');
-        button.addClass('athlete');
-        button.attr('data-name', athletes[i]);
-        button.text(athletes[i]);
-        $('#buttons-view').append(button);
-}
-}
-$('#add-athlete').on('click', function(event) {
-    event.preventDefault();
-var athleteInput = $('#athlete-input').val().trim();
-athlete.push(athlete);
-
-renderButtons();
-});
-$(document).on('click', '.athlete', displayAthletes);
-renderButtons();
-// var numberOfGifs = 10;
-
-
-// });
-
-// function click() {
-    // var userInput = $('#player-input').val();
-    // searchGif(userInput);
-// }
-
-// function submitButtonClicked() {
-    // var userInput = $('#player-input').val();
-
-    
-
-        
-        
-    </script>
 </body>
 </html>
